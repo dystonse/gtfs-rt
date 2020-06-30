@@ -31,7 +31,7 @@ message StopTimeEventExtension {
   optional float delay_50 = 6;
   optional float delay_75 = 7;
   optional float delay_95 = 8;
-  optional float delay_59 = 9;
+  optional float delay_99 = 9;
 }
 
 // FIXME: This is a workaround, see README.md
