@@ -1,0 +1,38 @@
+syntax = "proto2";
+option java_package = "com.google.transit.realtime";
+package transit_realtime;
+
+import "gtfs-realtime.proto";
+
+message Point {
+    required float time = 1;
+    required float probability = 2;
+}
+
+message Curve {
+    repeated Point point = 1;
+}
+
+enum PredictionType {
+    NONE = 0;
+    GENERAL = 1;
+    SEMI_SPECIFIC = 2;
+    SPECIFIC_CURVE = 3;
+    SPECIFIC_CURVE_SET = 4;
+}
+
+message StopTimeEventExtension {
+  optional Curve curve = 1;
+  required PredictionType prediction_type = 2;
+  optional float delay_1 = 3;
+  optional float delay_5 = 4;
+  optional float delay_25 = 5;
+  optional float delay_50 = 6;
+  optional float delay_75 = 7;
+  optional float delay_95 = 8;
+  optional float delay_59 = 9;
+}
+
+extend transit_realtime.TripUpdate.StopTimeEvent {
+  optional StopTimeEventExtension delay_distribution = 1023;
+}
