@@ -2,7 +2,8 @@ syntax = "proto2";
 option java_package = "com.google.transit.realtime";
 package transit_realtime;
 
-import "gtfs-realtime.proto";
+// FIXME: This is a workaround, see README.md
+// import "gtfs-realtime.proto";
 
 message Point {
     required float time = 1;
@@ -33,6 +34,7 @@ message StopTimeEventExtension {
   optional float delay_59 = 9;
 }
 
-extend transit_realtime.TripUpdate.StopTimeEvent {
-  optional StopTimeEventExtension delay_distribution = 1023;
-}
+// FIXME: This is a workaround, see README.md
+// extend transit_realtime.TripUpdate.StopTimeEvent {
+//   optional StopTimeEventExtension delay_distribution = 1023;
+// }

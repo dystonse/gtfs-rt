@@ -26,6 +26,9 @@ syntax = "proto2";
 option java_package = "com.google.transit.realtime";
 package transit_realtime;
 
+// FIXME: This is a workaround, see README.md
+import "extension.proto";
+
 // The contents of a feed message.
 // A feed is a continuous stream of feed messages. Each message in the stream is
 // obtained as a response to an appropriate HTTP GET request.
@@ -179,7 +182,14 @@ message TripUpdate {
     // The extensions namespace allows 3rd-party developers to extend the
     // GTFS Realtime Specification in order to add and evaluate new features
     // and modifications to the spec.
-    extensions 1000 to 1999;
+
+    // FIXME: This is a workaround, see README.md
+    extensions 1000 to 1022;
+    // FIXME: This is a workaround, see README.md
+    extensions 1024 to 1999;
+
+    // FIXME: This is a workaround, see README.md
+    optional StopTimeEventExtension delay_distribution = 1023;
   }
 
   // Realtime update for arrival and/or departure events for a given stop on a

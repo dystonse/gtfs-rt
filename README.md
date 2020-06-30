@@ -14,3 +14,5 @@ The probability distributions are represented as [dystonse curves](https://githu
 
 We did not yet apply for an extension id, and are currently using `1023` until we do. This id is subject to change!
 
+## Extension workaround
+The general [documentation about GTFS-rt extensions](https://developers.google.com/transit/gtfs-realtime/guides/extensions) mandates the usage of [protobuf extensions](https://developers.google.com/protocol-buffers/docs/proto#extensions). Since prost currently does not support extensions, we use a [workaround](https://github.com/danburkert/prost/issues/100#issuecomment-390266699) from the related [Issue #100](https://github.com/danburkert/prost/issues/100).
